@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DiscordJS</title>
+  <link rel="shortcut icon" type="image/png" href="images/ico_full.png"/>
+  <link rel="stylesheet" href="stylesheet/prism.css">
+  <link rel="stylesheet" href="stylesheet/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- Introduction -->
+  <div class="banner" style="display: block !important; background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://i.redd.it/gmyldjq35fy51.png');">
+    <div id="class-languages">
+      <i class="fab fa-html5 mr-1" style="color: #f84820"></i>
+      <i class="fab fa-css3-alt mr-1" style="color: #1970b5"></i>
+      <i class="fab fa-js-square mr-1" style="color: #FFE01B"></i>
+    </div>
+    <div class="container">
+      <div class="main">
+        <img src="images/logo.png" alt="">
+        <div class="class-title">
+          <h1>DiscordJS - Mentions, Gifs, Publier</h1>
+        </div>
+      </div>
+      <p>Notre bot pourra maintenant mentionner des gens, envoyer des gifs et on va mêmem pouvoir le publier</p>
+      <a class="btn btn-primary tl-button" href="#challenge" role="button">Commencer !</a>
+    </div>
+  </div>
+
+  <div class="container" id="challenge">
+
+    <div class="accordion" id="accordionExample">
+
+      <!-- Étape 1 -->
+      <div class="card">
+        <div class="card-header" id="heading1">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+              Étape 1 - Défis à compléter avant
+            </button>
+          </h2>
+        </div>
+        <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Avant d'entamer ce défi, assure toi d'avoir déjà fait ceux ci:</p>
+            <ul>
+              <li><a href="https://techieslab.github.io/DiscordJS-PingPong/">Discord.js - Ping Pong</a></li>
+              <li><a href="https://techieslab.github.io/DiscordJS-Commandes/">Discord.js - Commandes</a></li>
+              <li><a href="https://techieslab.github.io/DiscordJS-Commandes/">Discord.js - Gifs-Mentions</a></li>
+            </ul>
+            <p>Ensuite, assure-toi que tu sois bien connecté à ton compte <a href="https://repl.it">Repl.It</a>, et que tu aies ton projet de la fois passée.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 2 -->
+      <div class="card">
+        <div class="card-header" id="heading2">
+          <h2 class="mb-0">
+            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+              Étape 2 - Message de Bienvenue
+            </button>
+          </h2>
+        </div>
+        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Souviens-toi qu'on utilise 'ready' et 'message' comme paramètres pour vérifier si le bot est allumé et pour identifier les messages entrants.</p>
+
+            <pre><code class="language-js">
+              bot.on('ready', function() {
+                // ...
+              });
+
+              bot.on('message', function(msg) {
+                // ...
+              });
+            </code></pre>
+
+            <p>Pour vérifier si un nouvel utilisateur a rejoint le serveur, on utilise 'guildMemberAdd'. La fonction prendra alors comme paramètre le nouveau membre, de la façon suivante:</p>
+
+            <pre><code class="language-js">
+              bot.on('message', function(member) {
+                // ...
+              });
+            </code></pre>
+
+            <p>Pour envoyer un message dans un canal prédéfini (Un canal de bienvenue par example), il nous faut avoir accès à son ID. Pour l'avoir, il suffit de faire un clique droit sur ce canal.</p>
+
+            <pre><code class="language-js">
+              bot.on('message', function(member) {
+                member.guild.channels.get('ID_DU_CANAL').send('Bienvenue');
+              });
+            </code></pre>
+
+            <p><b>Challenge:</b> En connaissant les bases d'un message de bienvenue, essaye d'envoyer 'Bienvenu [NOM]'. Pour ce faire, je te conseille de faire <code>console.log(member.guild)</code> pour analyser à quoi ressemble cet objet. Tu pourra alors envoyer <code>member.guild.NOM + 'est arrivé'</code>, où tu dois bien entendu change le <code>.NOM</code> en quelque chose de plus adéquat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 3 -->
+      <div class="card">
+        <div class="card-header" id="heading3">
+          <h2 class="mb-0">
+            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+              Étape 3 - Stylise ton message
+            </button>
+          </h2>
+        </div>
+        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Pour l'instant nos messages sont très standards... On pourrait par example rajouter un peu de couleur!</p>
+
+            <p>Pour ce faire, on utilise quelque chose qui s'appelle des "embeds". C'est quelque chose qui vient avec la librarie Discord.js qu'on a importée plus tôt!</p>
+
+            <p>Pour créer un tel embed, il suffit de, après avoir importé la librarie mais avant d'écouter pour les messages, de l'initialiser avec le code suivant:</p>
+
+            <pre><code class="language-js">
+              const exampleEmbed = new Discord.MessageEmbed()
+                                              .setColor('#ff0000')
+                                              .setTitle('Bonjour');
+            </code></pre>
+
+            <p>Pour les couleurs, tu remarqueras que j'ai utilise '#ff0000'. Ceci correspond au rouge. Pour trouver le code <b>hexadecimal</b> de ta couleur préférée, tu peux regarder <a href="https://www.rapidtables.com/convert/color/hex-to-rgb.html">ici</a></p>
+
+            <p>Ceci est un embed très basique, qui a simplement une couleur rouge et un titre 'Bonjour'.</p>
+
+            <p>Maintenant il faut envoyer cet embed. Pour envoyer un embed, on le met simplement comme paramètre au <code>.send()</code> ou <code>.reply()</code>, comme n'importe quel autre message.</p>
+
+            <p>Cela ressemble donc à:</p>
+
+            <pre><code class="language-js">
+              msg.reply(exampleEmbed);
+            </code></pre>
+
+            <p>Tu pourrais bien entendu rajouter plus à ton message. Je te donne ici une liste d'autres méthodes à application au <code>Discord.MessageEmbed()</code> (Donc à rajouter après en utilisant un <code>.</code>) pour changer l'embed. Essaie les et crée un message super stylé!</p>
+
+            <ol>
+              <li><code>.setURL('https://discord.js.org/')</code> pour ajouter un lien au titre.</li>
+              <li><code>.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org') pour ajouter un auteur au embed, avec un nom, un lien vers son image et un lien vers sa page.</code></li>
+              <li><code>.setDescription('Some description here')</code> pour ajouter du vrai texte au embed.</li>
+              <li><code>.setThumbnail('https://i.imgur.com/wSTFkRM.png')</code> pour ajouter une image à côté du titre.</li>
+              <li><code>.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png')</code> pour ajouter du texte et une petite image en bas de l'embed.</li>
+              <li><code>.setTimestamp()</code> pour ajouter l'heure à laquelle le message était envoyé.</li>
+              <li><code>.setImage('https://i.imgur.com/wSTFkRM.png')</code> pour ajouter une image.</li>
+            </ol>
+
+            <p>Finalement, il y a encore une méthode qu'on pourrait utiliser, mais elle est compliquée!</p>
+
+            <pre>
+              <code class="language-js">
+                .addFields(
+                  { name: 'Regular field title', value: 'Some value here' },
+                  { name: 'Inline field title', value: 'Some value here' },
+                  { name: 'Inline field title', value: 'Some value here' },
+                )
+              </code>
+            </pre>
+
+            <p>Ceci ajoute des champs de texte, avec un petit titre (name) et une description (value).</p>
+
+            <p>Si tout ceci est trop facile pour toi, tu peux essayer de faire 2 types de embeds differénts et de les envoyer à différents moments! Tu peux aussi rendre le message différent dépendant de qui envoie le message!</p>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+  </div>
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
+    <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/3298561-faites-votre-mise-en-page-avec-flexbox#/id/r-3298711" rel="noopener noreferrer" target="_blank" class="alert-link copyright">
+      <i class="far fa-copyright"></i>
+      2020 Techies Lab ASBL. All rights reserved.
+    </a>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="javascript/prism.js"></script>
+</body>
+</html>
