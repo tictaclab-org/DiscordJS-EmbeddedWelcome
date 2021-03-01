@@ -67,6 +67,8 @@
         </div>
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
           <div class="card-body">
+            <p><b>Cette étape est fausse et à sauter pour l'instant!</b></p>
+            
             <p>Souviens-toi qu'on utilise 'ready' et 'message' comme paramètres pour vérifier si le bot est allumé et pour identifier les messages entrants.</p>
 
             <pre><code class="language-js">
@@ -82,7 +84,7 @@
             <p>Pour vérifier si un nouvel utilisateur a rejoint le serveur, on utilise 'guildMemberAdd'. La fonction prendra alors comme paramètre le nouveau membre, de la façon suivante:</p>
 
             <pre><code class="language-js">
-              bot.on('message', function(member) {
+              bot.on('guildMemberAdd', function(member) {
                 // ...
               });
             </code></pre>
@@ -90,7 +92,7 @@
             <p>Pour envoyer un message dans un canal prédéfini (Un canal de bienvenue par example), il nous faut avoir accès à son ID. Pour l'avoir, il suffit de faire un clique droit sur ce canal.</p>
 
             <pre><code class="language-js">
-              bot.on('message', function(member) {
+              bot.on('guildMemberAdd', function(member) {
                 member.guild.channels.get('ID_DU_CANAL').send('Bienvenue');
               });
             </code></pre>
