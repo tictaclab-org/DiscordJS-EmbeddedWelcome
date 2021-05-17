@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DiscordJS</title>
+  <title>DiscordJS #4</title>
   <link rel="shortcut icon" type="image/png" href="images/ico_full.png"/>
   <link rel="stylesheet" href="stylesheet/prism.css">
   <link rel="stylesheet" href="stylesheet/style.css">
@@ -22,10 +22,10 @@
       <div class="main">
         <img src="images/logo.png" alt="">
         <div class="class-title">
-          <h1>DiscordJS - Mentions, Gifs, Publier</h1>
+          <h1>DiscordJS - Partie 4</h1>
         </div>
       </div>
-      <p>Notre bot pourra maintenant mentionner des gens, envoyer des gifs et on va mêmem pouvoir le publier</p>
+      <p>Connaîs-tu Discord? Et les bots Discord? On peut les programmer en JavaScript grâce à la librarie <b>DiscordJS</b>!</p>
       <a class="btn btn-primary tl-button" href="#challenge" role="button">Commencer !</a>
     </div>
   </div>
@@ -49,7 +49,7 @@
             <ul>
               <li><a href="https://techieslab.github.io/DiscordJS-PingPong/">Discord.js - Ping Pong</a></li>
               <li><a href="https://techieslab.github.io/DiscordJS-Commandes/">Discord.js - Commandes</a></li>
-              <li><a href="https://techieslab.github.io/DiscordJS-Commandes/">Discord.js - Gifs-Mentions</a></li>
+              <li><a href="https://techieslab.github.io/DiscordJS-Commandes/">Discord.js - Gifs et Mentions</a></li>
             </ul>
             <p>Ensuite, assure-toi que tu sois bien connecté à ton compte <a href="https://repl.it">Repl.It</a>, et que tu aies ton projet de la fois passée.</p>
           </div>
@@ -61,57 +61,11 @@
         <div class="card-header" id="heading2">
           <h2 class="mb-0">
             <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-              Étape 2 - Message de Bienvenue
+              Étape 2 - Stylise ton message
             </button>
           </h2>
         </div>
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
-          <div class="card-body">
-            <p><b>Cette étape est fausse et à sauter pour l'instant!</b></p>
-            
-            <p>Souviens-toi qu'on utilise 'ready' et 'message' comme paramètres pour vérifier si le bot est allumé et pour identifier les messages entrants.</p>
-
-            <pre><code class="language-js">
-              bot.on('ready', function() {
-                // ...
-              });
-
-              bot.on('message', function(msg) {
-                // ...
-              });
-            </code></pre>
-
-            <p>Pour vérifier si un nouvel utilisateur a rejoint le serveur, on utilise 'guildMemberAdd'. La fonction prendra alors comme paramètre le nouveau membre, de la façon suivante:</p>
-
-            <pre><code class="language-js">
-              bot.on('guildMemberAdd', function(member) {
-                // ...
-              });
-            </code></pre>
-
-            <p>Pour envoyer un message dans un canal prédéfini (Un canal de bienvenue par example), il nous faut avoir accès à son ID. Pour l'avoir, il suffit de faire un clique droit sur ce canal.</p>
-
-            <pre><code class="language-js">
-              bot.on('guildMemberAdd', function(member) {
-                member.guild.channels.get('ID_DU_CANAL').send('Bienvenue');
-              });
-            </code></pre>
-
-            <p><b>Challenge:</b> En connaissant les bases d'un message de bienvenue, essaye d'envoyer 'Bienvenu [NOM]'. Pour ce faire, je te conseille de faire <code>console.log(member.guild)</code> pour analyser à quoi ressemble cet objet. Tu pourra alors envoyer <code>member.guild.NOM + 'est arrivé'</code>, où tu dois bien entendu change le <code>.NOM</code> en quelque chose de plus adéquat.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Étape 3 -->
-      <div class="card">
-        <div class="card-header" id="heading3">
-          <h2 class="mb-0">
-            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-              Étape 3 - Stylise ton message
-            </button>
-          </h2>
-        </div>
-        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
           <div class="card-body">
             <p>Pour l'instant nos messages sont très standards... On pourrait par example rajouter un peu de couleur!</p>
 
@@ -173,19 +127,21 @@
 
 
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
-    <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
-    <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+  <div class="footer">
+    <div class="footer-links">
+      <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
+      <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/company/techies-lab/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+      
+    </div>
+    <div class="footer-copyright">
+      <a href="https://techieslab.be" rel="noopener noreferrer" target="_blank" class="alert-link copyright">
+        <i class="far fa-copyright"></i>
+        2021 Techies Lab ASBL. All rights reserved.
+      </a>
+    </div>
   </div>
-  <div class="footer-copyright">
-    <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/3298561-faites-votre-mise-en-page-avec-flexbox#/id/r-3298711" rel="noopener noreferrer" target="_blank" class="alert-link copyright">
-      <i class="far fa-copyright"></i>
-      2020 Techies Lab ASBL. All rights reserved.
-    </a>
-  </div>
-</div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
